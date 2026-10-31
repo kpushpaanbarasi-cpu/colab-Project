@@ -1,0 +1,129 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(251, 243, 228, 0.96);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(6px);
+   padding: 0.6rem 1.25rem;
+}
+
+.navbar__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.6rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--maroon);
+  border-radius: 6px;
+}
+
+.navbar__logo {
+  width: 38px;
+  height: 38px;
+}
+
+.navbar__logo circle:first-child {
+  fill: var(--maroon);
+}
+
+.navbar__logo g ellipse {
+  fill: none;
+  stroke: var(--ivory);
+  stroke-width: 1.3;
+}
+
+.navbar__logo-dot {
+  fill: var(--ivory);
+}
+
+.navbar__brand-text {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.navbar__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.navbar__link {
+  display: block;
+  padding: 0.5rem 0.9rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 6px;
+  position: relative;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: var(--terracotta);
+  background: rgba(181, 83, 47, 0.08);
+}
+
+/* Hamburger button: only visible on small screens */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0 10px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.navbar__toggle-bar {
+  display: block;
+  height: 2px;
+  background: var(--maroon);
+  border-radius: 2px;
+}
+
+@media (max-width: 720px) {
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 1.25rem 1rem;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .navbar__links--open {
+    display: flex;
+  }
+
+  .navbar__link {
+    padding: 0.85rem 0.5rem;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+  }
+}

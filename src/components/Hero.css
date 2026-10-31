@@ -1,0 +1,71 @@
+.hero {
+ position: relative;
+  padding: 5rem 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: var(--maroon-deep);
+}
+
+/* Darker on the left where the text sits, lighter on the right so the kolam shows */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(52, 12, 18, 0.88) 0%,
+    rgba(52, 12, 18, 0.7) 45%,
+    rgba(52, 12, 18, 0.15) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 1.25rem;
+}
+
+.hero__brand {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #f1c9a6;
+}
+
+.hero__title {
+  margin: 0 0 1.25rem;
+  max-width: 14ch;
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 6.5vw, 4.6rem);
+  line-height: 1.05;
+  font-weight: 700;
+}
+
+.hero__text {
+  margin: 0 0 2rem;
+  max-width: 34rem;
+  font-size: 1.1rem;
+  color: #f6e8d3;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .hero {
+    min-height: 74vh;
+    background-position: 70% center;
+  }
+
+  /* On phones the text covers more of the image, so darken it evenly */
+  .hero__overlay {
+    background: rgba(52, 12, 18, 0.74);
+  }
+}

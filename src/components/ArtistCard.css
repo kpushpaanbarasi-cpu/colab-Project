@@ -1,0 +1,83 @@
+.artist-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.artist-card:hover,
+.artist-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(94, 24, 34, 0.14);
+}
+
+.artist-card__image-wrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: #8a3b24;
+}
+
+.artist-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artist-card__badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--maroon);
+  background: var(--ivory);
+  border-radius: 999px;
+}
+
+.artist-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem 1.25rem 1.4rem;
+}
+
+.artist-card__style {
+  margin: 0 0 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.artist-card__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: var(--maroon);
+}
+
+.artist-card__artist {
+  margin: 0.15rem 0 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+.artist-card__location {
+  margin: 0 0 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.artist-card__description {
+  margin: 0 0 1.25rem;
+  flex: 1;
+}

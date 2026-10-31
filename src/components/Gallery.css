@@ -1,0 +1,58 @@
+.gallery {
+ position: relative;
+  padding: 5rem 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: var(--maroon-deep);
+}
+.gallery::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 8, 8, 0.55);
+}
+
+/* Keep the content above the dark layer */
+.gallery > .container {
+  position: relative;
+}
+
+/* Light text on the dark image */
+.gallery .section__header h2,
+.gallery .section__header p {
+  color: #fff4e0;
+}
+.gallery .ornament {
+  color: #f2c9a8;
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.gallery__note {
+  max-width: 560px;
+  margin: 2.5rem auto 0;
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--text-soft);
+}
+
+@media (max-width: 980px) {
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .gallery {
+    padding: 3.5rem 0;
+  }
+
+  .gallery__grid {
+    grid-template-columns: 1fr;
+  }
+}

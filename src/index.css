@@ -1,0 +1,232 @@
+/* ============================================================
+   Kolam Connect styles
+   1. Variables  2. Base  3. Buttons  4. Navbar  5. Hero
+   6. Sections / Gallery  7. About  8. Contact  9. Footer
+   ============================================================ */
+
+/* ---------- 1. Variables (change colours here) ---------- */
+:root {
+  --ivory: #fbf4e6;
+  --cream: #f3e7d0;
+  --maroon: #6b1f2a;
+  --maroon-deep: #4a1616;
+  --brown: #3b2218;
+  --terracotta: #b8532f;
+  --terracotta-dark: #9a4224;
+  --whatsapp: #1f7a4d;
+  --whatsapp-dark: #176139;
+  --line: #e2d2b3;
+
+  --font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-body: 'Mukta', 'Segoe UI', system-ui, sans-serif;
+  --nav-height: 68px;
+}
+
+/* ---------- 2. Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--brown);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--maroon);
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+code { background: var(--cream); padding: 0.1em 0.4em; border-radius: 4px; font-size: 0.9em; }
+
+:focus-visible {
+  outline: 3px solid var(--terracotta);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem;
+  background: var(--maroon); color: #fff; padding: 0.5rem 1rem; z-index: 100;
+}
+.skip-link:focus { top: 0.5rem; }
+
+.container { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+.container--narrow { width: min(720px, 100% - 2.5rem); }
+
+/* ---------- 3. Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  font: 600 1rem var(--font-body);
+  text-decoration: none; cursor: pointer;
+  border: 2px solid transparent; border-radius: 999px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn--primary { background: var(--terracotta); color: #fff; }
+.btn--primary:hover { background: var(--terracotta-dark); }
+
+.btn--outline-light { color: #fff; border-color: rgba(255, 244, 224, 0.8); background: transparent; }
+.btn--outline-light:hover { background: #fff4e0; color: var(--maroon); }
+
+.btn--whatsapp {
+  width: 100%; margin-top: auto;
+  color: var(--whatsapp); border-color: var(--whatsapp); background: transparent;
+  padding: 0.65rem 1rem;
+}
+.btn--whatsapp:hover { background: var(--whatsapp); color: #fff; }
+
+.btn--whatsapp-solid { background: var(--whatsapp); color: #fff; }
+.btn--whatsapp-solid:hover { background: var(--whatsapp-dark); }
+
+/* ---------- 4. Navbar ---------- */
+.navbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(251, 244, 230, 0.96);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(6px);
+}
+.navbar__inner {
+  width: min(1120px, 100% - 2.5rem); margin-inline: auto;
+  height: var(--nav-height);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.navbar__brand {
+  font: 700 1.6rem var(--font-heading); color: var(--maroon);
+  text-decoration: none; display: flex; align-items: center; gap: 0.5rem;
+}
+.navbar__mark { color: var(--terracotta); font-size: 1.2rem; }
+
+.navbar__links { display: flex; gap: 2rem; }
+.navbar__links a {
+  text-decoration: none; font-weight: 500; padding: 0.25rem 0;
+  border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s;
+}
+.navbar__links a:hover { color: var(--terracotta); border-color: var(--terracotta); }
+
+.navbar__toggle {
+  display: none; background: none; border: 1px solid var(--line); border-radius: 8px;
+  width: 44px; height: 44px; cursor: pointer; align-items: center; justify-content: center;
+}
+.navbar__bars, .navbar__bars::before, .navbar__bars::after {
+  display: block; width: 22px; height: 2px; background: var(--maroon); position: relative;
+  transition: transform 0.2s, background 0.2s;
+}
+.navbar__bars::before, .navbar__bars::after { content: ''; position: absolute; left: 0; }
+.navbar__bars::before { top: -7px; }
+.navbar__bars::after { top: 7px; }
+.navbar__toggle[aria-expanded='true'] .navbar__bars { background: transparent; }
+.navbar__toggle[aria-expanded='true'] .navbar__bars::before { transform: translateY(7px) rotate(45deg); }
+.navbar__toggle[aria-expanded='true'] .navbar__bars::after { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 720px) {
+  .navbar__toggle { display: flex; }
+  .navbar__links {
+    display: none; position: absolute; top: var(--nav-height); left: 0; right: 0;
+    flex-direction: column; gap: 0; background: var(--ivory);
+    border-bottom: 1px solid var(--line); padding: 0.5rem 1.25rem 1rem;
+  }
+  .navbar__links.is-open { display: flex; }
+  .navbar__links a { padding: 0.8rem 0; border-bottom: 1px solid var(--line); }
+}
+
+/* ---------- 5. Hero ---------- */
+.hero {
+  position: relative; min-height: calc(100vh - var(--nav-height)); min-height: calc(100svh - var(--nav-height));
+  display: flex; align-items: center;
+  background-size: cover; background-position: center; background-color: var(--maroon-deep);
+  color: #fff4e0;
+}
+/* Dark overlay keeps the text readable over the artwork */
+.hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(40, 10, 10, 0.88) 0%, rgba(40, 10, 10, 0.6) 55%, rgba(40, 10, 10, 0.2) 100%);
+}
+.hero__content { position: relative; width: min(1120px, 100% - 2.5rem); margin-inline: auto; padding: 4rem 0; max-width: 640px; margin-left: max(1.25rem, calc((100% - 1120px) / 2)); }
+.hero__eyebrow { font-family: 'Noto Serif Tamil', serif; color: #e8a47f; letter-spacing: 0.08em; margin: 0 0 0.25rem; }
+.hero__title { font-size: clamp(3rem, 8vw, 5.5rem); color: #fff4e0; }
+.hero__headline { font: 600 clamp(1.4rem, 3vw, 2rem) var(--font-heading); color: #f2c9a8; margin: 0 0 1rem; }
+.hero__text { font-size: 1.1rem; max-width: 52ch; margin: 0 0 2rem; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+@media (max-width: 720px) {
+  .hero__overlay { background: rgba(40, 10, 10, 0.78); }
+  .hero__actions .btn { flex: 1 1 100%; }
+}
+
+/* ---------- 6. Sections and Gallery ---------- */
+.section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+.section--tinted { background: var(--cream); }
+.section__header { text-align: center; margin-bottom: 2.5rem; max-width: 640px; margin-inline: auto; }
+.section__header h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+.section__header p { margin: 0.5rem 0 0; }
+.ornament { color: var(--terracotta); margin: 0 auto 0.5rem; display: block; }
+
+.grid { display: grid; gap: 1.75rem; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+
+.card {
+  display: flex; flex-direction: column; background: #fffaf0;
+  border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 12px 26px rgba(74, 22, 22, 0.15); }
+.card__image-wrap { position: relative; aspect-ratio: 1 / 1; background: var(--maroon-deep); overflow: hidden; }
+.card__image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.card:hover .card__image { transform: scale(1.04); }
+.card__badge {
+  position: absolute; top: 0.75rem; left: 0.75rem;
+  background: rgba(251, 244, 230, 0.95); color: var(--maroon);
+  font: 600 0.75rem var(--font-body); letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.2rem 0.6rem; border-radius: 999px;
+}
+.card__body { display: flex; flex-direction: column; flex: 1; padding: 1.25rem; }
+.card__title { font-size: 1.6rem; margin: 0; }
+.card__artist { margin: 0 0 0.5rem; color: var(--terracotta-dark); font-weight: 500; font-size: 0.95rem; }
+.card__location { margin: 0 0 0.5rem; font-size: 0.9rem; opacity: 0.8; }
+.card__description { margin: 0 0 1.25rem; font-size: 0.97rem; line-height: 1.55; }
+
+/* ---------- 7. About ---------- */
+.about__lead { font: 600 1.55rem/1.4 var(--font-heading); color: var(--maroon); }
+#about p { margin: 0 0 1rem; }
+
+/* ---------- 8. Contact ---------- */
+.contact-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.contact-card {
+  background: #fffaf0; border: 1px solid var(--line); border-radius: 14px;
+  padding: 2rem 1.5rem; text-align: center; color: var(--terracotta);
+  display: flex; flex-direction: column; align-items: center; gap: 0.35rem;
+}
+.contact-card h3 { font-size: 1.6rem; margin: 0.25rem 0 0; }
+.contact-card p { margin: 0 0 0.75rem; color: var(--brown); }
+.contact-card--primary { border-color: var(--whatsapp); color: var(--whatsapp); }
+.contact-card--primary .btn { margin-top: auto; }
+.contact-card__link {
+  color: var(--maroon); font-weight: 600; font-size: 1.15rem; text-underline-offset: 4px;
+}
+.contact-card__link:hover { color: var(--terracotta); }
+.contact-card__pending { font-style: italic; opacity: 0.75; }
+.contact-card__hint { font-size: 0.85rem; opacity: 0.7; }
+.setup-note {
+  margin: 2rem auto 0; max-width: 640px; text-align: center; font-size: 0.9rem;
+  background: var(--cream); border: 1px dashed var(--terracotta); border-radius: 10px; padding: 0.75rem 1rem;
+}
+
+/* ---------- 9. Footer ---------- */
+.footer { background: var(--maroon-deep); color: #f3e1c4; text-align: center; padding: 2rem 1.25rem; }
+.footer p { margin: 0.2rem 0; }
+.footer__small { font-size: 0.85rem; opacity: 0.7; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}

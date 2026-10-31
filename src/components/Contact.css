@@ -1,0 +1,72 @@
+.contact {
+  padding: 5rem 0;
+  background: var(--cream);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.contact__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.contact__card--featured {
+  background: var(--maroon);
+  border-color: var(--maroon);
+  color: var(--ivory);
+}
+
+.contact__card-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  color: var(--maroon);
+}
+
+.contact__card--featured .contact__card-title {
+  color: var(--ivory);
+}
+
+.contact__card-text {
+  margin: 0;
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.contact__card-text--muted {
+  color: var(--text-soft);
+  font-style: italic;
+}
+
+.contact__dev-note {
+  max-width: 640px;
+  margin: 2rem auto 0;
+  padding: 0.8rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  background: rgba(181, 83, 47, 0.08);
+  border: 1px dashed var(--terracotta);
+  border-radius: 8px;
+}
+
+@media (max-width: 860px) {
+  .contact {
+    padding: 3.5rem 0;
+  }
+
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+}
