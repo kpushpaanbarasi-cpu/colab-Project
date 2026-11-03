@@ -7,13 +7,15 @@ import {
   mapsLink,
 } from '../data/siteConfig.js'
 import { WhatsAppIcon, PhoneIcon, PinIcon, Ornament } from './Icons.jsx'
+import contact from '../assets/kolam/contact.jpg'
+import './Contact.css'
 
 // Three ways to get in touch. All values come from src/data/siteConfig.js.
 export default function Contact() {
   const needsSetup = !hasWhatsApp || !hasPhone
 
   return (
-    <section id="contact" className="section" aria-labelledby="contact-title">
+    <section id="contact" className="contact" aria-labelledby="contact-title"style={{ backgroundImage: `url(${contact})` }}>
       <div className="container">
         <header className="section__header">
           <Ornament />

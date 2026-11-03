@@ -13,7 +13,7 @@ export const siteConfig = {
   whatsappNumber: '918056380147',
 
   // How the phone number is shown on the page, e.g. '+91 XXXXX XXXXX'
-  phoneDisplay: '',
+  phoneDisplay: '918056380147',
 
   // City / area shown in the Contact section.
   // TODO: replace with your real city or business location.

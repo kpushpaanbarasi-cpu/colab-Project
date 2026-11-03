@@ -13,9 +13,8 @@ export default function Hero() {
     <section id="home" className="hero" style={{ backgroundImage: `url(${heroImage})` }}>
       <div className="hero__overlay" />
       <div className="hero__content">
-        <p className="hero__eyebrow" lang="ta">கோலம்</p>
-        <h1 className="hero__title">Kolam Connect</h1>
-        <p className="hero__headline">Connecting Tradition, One Kolam at a Time.</p>
+        <h1 className="hero__title">Welcome to Kolam Connect</h1>
+        <p className="hero__headline">Make your day great with our Special Kolams!</p>
         <p className="hero__text">
           Kolam Connect brings kolam artists together with people who appreciate and need their
           work, from festival mornings to wedding doorways.

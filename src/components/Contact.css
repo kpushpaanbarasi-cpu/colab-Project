@@ -1,6 +1,30 @@
 .contact {
   padding: 5rem 0;
   background: var(--cream);
+   position: relative;
+  padding: 5rem 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: var(--maroon-deep);
+}
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 8, 8, 0.55);
+}
+.contact > .container {
+  position: relative;
+}
+
+/* Light text on the dark image */
+ .section__header h2,
+.section__header p {
+  color: #fff4e0;
+}
+.contact .ornament {
+  color: #f2c9a8;
 }
 
 .contact__grid {
